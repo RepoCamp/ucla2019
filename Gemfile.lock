@@ -155,6 +155,7 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     declarative (0.0.10)
     declarative-option (0.1.0)
     deprecation (1.0.0)
@@ -619,6 +620,10 @@ GEM
     rsolr (2.2.1)
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
@@ -759,6 +764,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
   devise-guests (~> 0.6)
   fcrepo_wrapper
@@ -770,6 +776,7 @@ DEPENDENCIES
   rails (~> 5.1.7)
   riiif (~> 2.0)
   rsolr (>= 1.0)
+  rspec (~> 3.5)
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver

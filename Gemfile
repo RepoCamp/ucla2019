@@ -39,6 +39,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'solr_wrapper', '>= 0.3'
+  gem 'fcrepo_wrapper'
+  gem 'rspec', "~> 3.5"
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -54,9 +59,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hyrax', '3.0.0-beta1'
-group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
-end
 
 gem 'rsolr', '>= 1.0'
 gem 'bootstrap-sass', '~> 3.0'
@@ -64,9 +66,5 @@ gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
-group :development, :test do
-  gem 'fcrepo_wrapper'
-  gem 'rspec-rails'
-end
 
 gem 'riiif', '~> 2.0'
