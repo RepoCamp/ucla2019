@@ -9,7 +9,7 @@ class Image < ActiveFedora::Base
   validates :title, presence: { message: 'Your work must have a title.' }
 
   property :year, predicate: "http://www.europeana.eu/schemas/edm/year" do |index|
-    index.as :stored_searchable
+    index.as :stored_searchable, :facetable
   end
 
 
