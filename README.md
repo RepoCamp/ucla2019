@@ -16,7 +16,7 @@ For more information on how to use this repository, please visit the [WIKI](http
 To start:
 
 ```sh
-docker-compse run web rails db:setup
+docker-compose run web rails db:setup
 docker-compose up
 ```
 Rails will be running on port 3000.
