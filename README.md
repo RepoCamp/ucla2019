@@ -6,8 +6,36 @@ The goal of Samvera Camp is to introduce new developers to the skills and tools 
 
 We encourage participation from throughout the library and open source communities. In order to ensure that everyone can enjoy a safe, welcoming, and respectful environment, please familiarize yourself with the [Samvera Community Code of Conduct](https://wiki.duraspace.org/display/samvera/Code+of+Conduct) and [Anti-Harassment Policy](https://wiki.duraspace.org/display/samvera/Anti-Harassment+Policy)
 
-<img align='right' height='100px' src='http://camp.curationexperts.com/sample-assets/DCE-Sm-Square.png' />  
+<img align='right' height='100px' src='http://camp.curationexperts.com/sample-assets/DCE-Sm-Square.png' />
 
-For more information on how to use this repository, please visit the [WIKI](https://github.com/RepoCamp/berlin2018/wiki).  
+For more information on how to use this repository, please visit the [WIKI](https://github.com/RepoCamp/berlin2018/wiki).
+
+
+## Running with Docker Compose
+
+To start:
+
+```sh
+docker-compse run web rails db:setup
+docker-compose up
+```
+Rails will be running on port 3000.
+
+To run the specs:
+```sh
+docker-compose run web rspec
+```
+To use byebug:
+
+After hitting the byebug in your code, run docker ps to get the id
+for the web container. Copy that id and then run:
+
+```sh
+docker attach 943094304
+```
+Hit enter and you'll be in the byebug.
+
+You'll find the bundled gems in the `./bundle` folder. This
+folder is gitignored to avoid commiting it.
 
 <em>This repository was built and is managed by [Data Curation Experts LLC](https://curationexperts.com)</em>
