@@ -1,0 +1,127 @@
+version: "3.6"
+
+services:
+  web:
+    image: curationexperts/ucla2019:latest
+    depends_on:
+      - fedora
+      - redis
+      - solr
+      - fedora_test
+      - solr_test
+    environment:
+      DATABASE_HOST: db
+      FEDORA_HOST: http://fedora
+      FEDORA_PORT: 8080
+      FEDORA_DEV_URL: http://fedora:8080/rest
+      FEDORA_BASE_PATH: /dev
+      FEDORA_TEST_URL: http://fedora_test:8080/rest
+      FEDORA_TEST_BASE_PATH: /test
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_URL: redis://redis:6379/0
+      SOLR_URL: http://solr:8983/solr/ucla2019
+      SOLR_TEST_URL: http://solr_test:8983/solr/ucla2019
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/ucla2019
+      - data:/opt/data
+      - derivatives:/opt/derivatives
+      - uploads:/opt/uploads
+      - ./bundle:/usr/local/bundle
+      - log:/ucla2019/log
+      - ucla2019_tmp:/ucla2019/tmp
+      - tmp:/tmp
+    working_dir: /ucla2019
+    stdin_open: true
+    tty: true
+  sidekiq:
+    image: curationexperts/ucla2019:latest
+    command: ['bundle', 'exec', 'sidekiq']
+    depends_on:
+      - web
+      - fedora
+      - redis
+      - solr
+      - fedora_test
+      - solr_test
+    environment:
+      DATABASE_HOST: db
+      FEDORA_HOST: http://fedora
+      FEDORA_PORT: 8080
+      FEDORA_DEV_URL: http://fedora:8080/rest
+      FEDORA_BASE_PATH: /dev
+      FEDORA_TEST_URL: http://fedora_test:8080/rest
+      FEDORA_TEST_BASE_PATH: /test
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_URL: redis://redis:6379/0
+      SOLR_URL: http://solr:8983/solr/ucla2019
+      SOLR_TEST_URL: http://solr_test:8983/solr/ucla2019
+    volumes:
+      - .:/ucla2019
+      - data:/opt/data
+      - derivatives:/opt/derivatives
+      - uploads:/opt/uploads
+      - ./bundle:/usr/local/bundle
+      - log:/ucla2019/log
+      - ucla2019_tmp:/ucla2019/tmp
+      - tmp:/tmp
+    working_dir: /ucla2019
+  fedora:
+    image: nulib/fcrepo4:4.7.5
+    ports:
+      - "8984:8080"
+    volumes:
+      - fcrepo_data:/data
+    environment:
+      JAVA_OPTIONS: "-Xmx512m"
+    stdin_open: true
+    tty: true
+  fedora_test:
+    image: nulib/fcrepo4:4.7.5
+    ports:
+      - "8986:8080"
+    environment:
+      JAVA_OPTIONS: "-Xmx512m"
+  redis:
+    image: redis:4
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+  solr:
+    image: solr:7.7
+    volumes:
+      - solr_data:/opt/solr/server/solr/mycores
+      - ./solr/config:/opt/solr/server/solr/configsets/ucla2019
+    ports:
+      - "8983:8983"
+    entrypoint:
+      - solr-precreate
+      - ucla2019
+      - /opt/solr/server/solr/configsets/ucla2019
+  solr_test:
+    image: solr:7.7
+    volumes:
+      - solr_test_data:/opt/solr/server/solr/mycores
+      - ./solr/config:/opt/solr/server/solr/configsets/ucla2019
+    ports:
+      - "8985:8983"
+    entrypoint:
+      - solr-precreate
+      - ucla2019
+      - /opt/solr/server/solr/configsets/ucla2019
+volumes:
+  data:
+  bundle_dir:
+  derivatives:
+  fcrepo_data:
+  log:
+  redis_data:
+  solr_data:
+  solr_test_data:
+  tmp:
+  ucla2019_tmp:
+  uploads:
