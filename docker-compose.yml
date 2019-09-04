@@ -25,14 +25,14 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/ucla2019
-      - data:/opt/data
-      - derivatives:/opt/derivatives
-      - uploads:/opt/uploads
-      - ./bundle:/usr/local/bundle
-      - log:/ucla2019/log
-      - ucla2019_tmp:/ucla2019/tmp
-      - tmp:/tmp
+      - .:/ucla2019:delegated
+      - data:/opt/data:delegated
+      - derivatives:/opt/derivatives:delegated
+      - uploads:/opt/uploads:delegated
+      - bundle_dir:/usr/local/bundle:delegated
+      - log:/ucla2019/log:delegated
+      - ucla2019_tmp:/ucla2019/tmp:delegated
+      - tmp:/tmp:delegated
     working_dir: /ucla2019
     stdin_open: true
     tty: true
@@ -88,7 +88,7 @@ services:
   redis:
     image: redis:4
     volumes:
-      - redis_data:/data
+      - redis_data:/data:delegated
     ports:
       - "6379:6379"
   solr:
@@ -105,8 +105,8 @@ services:
   solr_test:
     image: solr:7.7
     volumes:
-      - solr_test_data:/opt/solr/server/solr/mycores
-      - ./solr/config:/opt/solr/server/solr/configsets/ucla2019
+      - solr_test_data:/opt/solr/server/solr/mycores:delegated
+      - ./solr/config:/opt/solr/server/solr/configsets/ucla2019:delegated
     ports:
       - "8985:8983"
     entrypoint:
