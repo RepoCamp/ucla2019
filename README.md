@@ -35,7 +35,4 @@ docker attach 943094304
 ```
 Hit enter and you'll be in the byebug.
 
-You'll find the bundled gems in the `./bundle` folder. This
-folder is gitignored to avoid commiting it.
-
 <em>This repository was built and is managed by [Data Curation Experts LLC](https://curationexperts.com)</em>
