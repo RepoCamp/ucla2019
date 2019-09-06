@@ -8,6 +8,6 @@ We encourage participation from throughout the library and open source communiti
 
 <img align='right' height='100px' src='http://camp.curationexperts.com/sample-assets/DCE-Sm-Square.png' />
 
-For more information on how to use this repository, please visit the [WIKI](https://github.com/RepoCamp/berlin2018/wiki).
+For more information on how to use this repository, please visit the [WIKI](https://github.com/RepoCamp/ucla2019/wiki).
 
 <em>This repository was built and is managed by [Data Curation Experts LLC](https://curationexperts.com)</em>
