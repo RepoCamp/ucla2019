@@ -10,29 +10,4 @@ We encourage participation from throughout the library and open source communiti
 
 For more information on how to use this repository, please visit the [WIKI](https://github.com/RepoCamp/berlin2018/wiki).
 
-
-## Running with Docker Compose
-
-To start:
-
-```sh
-docker-compose run web rails db:setup
-docker-compose up
-```
-Rails will be running on port 3000.
-
-To run the specs:
-```sh
-docker-compose run web rspec
-```
-To use byebug:
-
-After hitting the byebug in your code, run docker ps to get the id
-for the web container. Copy that id and then run:
-
-```sh
-docker attach 943094304
-```
-Hit enter and you'll be in the byebug.
-
 <em>This repository was built and is managed by [Data Curation Experts LLC](https://curationexperts.com)</em>
