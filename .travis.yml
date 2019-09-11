@@ -14,7 +14,7 @@ before_install:
 
 install:
   - docker-compose run web rails db:setup
-  - docker-compose up
+  - docker-compose up -d
 
 before_script:
   # The following line could be enabled to verify that the rest server is responding.
@@ -31,4 +31,4 @@ node_js:
 
 script:
   # Use Chromium instead of Chrome.
-  - docker-compose run web rspec spec 
+  - docker-compose run web rspec spec
