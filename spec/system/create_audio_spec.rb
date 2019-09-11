@@ -1,10 +1,10 @@
 # Generated via
-#  `rails generate hyrax:work Image`
+#  `rails generate hyrax:work Audio`
 require 'rails_helper'
 include Warden::Test::Helpers
 
 # NOTE: If you generated more than one work, you have to set "js: true"
-RSpec.feature 'Create a Image', js: false do
+RSpec.describe 'Create a Audio', integration: true, clean: true, type: :system do
   context 'a logged in user' do
     let(:user_attributes) do
       { email: 'test@example.com' }
@@ -36,10 +36,10 @@ RSpec.feature 'Create a Image', js: false do
       click_link "Add new work"
 
       # If you generate more than one work uncomment these lines
-      # choose "payload_concern", option: "Image"
-      # click_button "Create work"
+      choose "payload_concern", option: "Audio"
+      click_button "Create work"
 
-      expect(page).to have_content "Add New Image"
+      expect(page).to have_content "Add New Audio"
       click_link "Files" # switch tab
       expect(page).to have_content "Add files"
       expect(page).to have_content "Add folder"
@@ -52,14 +52,12 @@ RSpec.feature 'Create a Image', js: false do
       fill_in('Creator', with: 'Doe, Jane')
       fill_in('Keyword', with: 'testing')
       select('In Copyright', from: 'Rights statement')
-      click_link("Additional fields")
-      fill_in "Year", with: "2005"
 
       # With selenium and the chrome driver, focus remains on the
       # select box. Click outside the box so the next line can't find
       # its element
       find('body').click
-      choose('image_visibility_open')
+      choose('audio_visibility_open')
       expect(page).to have_content('Please note, making something visible to the world (i.e. marking this as Public) may be viewed as publishing which could impact your ability to')
       check('agreement')
 

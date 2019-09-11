@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Display an Image' do
+RSpec.describe 'Display an Image', type: :system do
   let(:title)      { ['Journey to Skull Island'] }
   let(:creator)    { ['Quest, Jane'] }
   let(:keyword)    { ['Pirates', 'Adventure'] }
