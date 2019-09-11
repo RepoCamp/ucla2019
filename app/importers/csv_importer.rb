@@ -11,6 +11,12 @@ class CsvImporter
       image = Image.new
       image.title = [row[1]]
       image.source = [row[2]]
+      image.creator = [row[3]]
+      image.description = [row[4]]
+      image.keyword = row[5].split(',')
+      #row[5].split(',').each do |keyword|
+      #  image.keyword += keyword
+      #end
       image.visibility = "open"
       image.depositor = @user.email
       # Attach the image file and run it through the actor stack
