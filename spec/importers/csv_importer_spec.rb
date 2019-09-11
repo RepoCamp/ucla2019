@@ -39,4 +39,29 @@ RSpec.describe CsvImporter do
     expect(imported_image.members.first).to be_instance_of(FileSet)
     expect(imported_image.members.first.title.first).to eq 'dog.jpg'
   end
+  
+  it "puts the creator into the creator field" do
+    CsvImporter.new(one_line_example).import
+    imported_image = Image.first
+    expect(imported_image.creator.first).to eq 'John Smith'
+  end
+  
+  it "puts the description into the description field" do
+    CsvImporter.new(one_line_example).import
+    imported_image = Image.first
+    expect(imported_image.description.first).to eq 'This is a picture of a cute dog'
+  end
+  
+  it "puts the keyword into the keyword field" do
+    CsvImporter.new(one_line_example).import
+    imported_image = Image.first
+    expect(imported_image.keyword.sort.first).to eq 'dog'
+  end
+  
+  it "imports all keywords" do
+    CsvImporter.new(one_line_example).import
+    imported_image = Image.first
+    expect(imported_image.keyword.count).to eq 2
+    #expect { CsvImporter.new(one_line_example).import }.to change { Image.first.keyword.count }.by 2
+  end
 end
