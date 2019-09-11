@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Search for an image' do
+RSpec.describe 'Search for an image', type: :system do
   let(:title) { ['Journey to Skull Island'] }
   let(:creator) { ['Quest, Jane'] }
   let(:keyword) { ['Pirates', 'Adventure'] }
