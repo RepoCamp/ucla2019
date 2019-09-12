@@ -64,4 +64,10 @@ RSpec.describe CsvImporter do
     expect(imported_image.keyword.count).to eq 2
     #expect { CsvImporter.new(one_line_example).import }.to change { Image.first.keyword.count }.by 2
   end
+  
+  fit "puts the year into the year field" do
+    CsvImporter.new(one_line_example).import
+    imported_image = Image.first
+    expect(imported_image.year.first).to eq '2015'
+  end
 end
