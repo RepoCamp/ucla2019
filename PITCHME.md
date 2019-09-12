@@ -38,3 +38,5 @@ Run rspec spec in docker each time a pull request is made or updated.
 
 +++?code=config/initializers/hyrax.rb
 @[140](enable IIIF)
+
++++?image=docs/iiif.gif
