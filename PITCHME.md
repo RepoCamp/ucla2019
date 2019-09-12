@@ -4,8 +4,6 @@
 - Jen Diamond
 - Terry Brady
 
-![](app/assets/images/bluestar_logo.png)
-
 +++?image=app/assets/images/bluestar_logo.png
 
 +++
@@ -15,6 +13,8 @@
 Run rspec spec in docker each time a pull request is made or updated.
 
 +++?image=docs/travis.gif
+
+---?code=.travis.yml&lang=yaml
 
 +++
 
