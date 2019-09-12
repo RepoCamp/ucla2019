@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  
+
+  resources :csv_imports, only: [:index, :show, :new, :create]
+
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
-  
+
     concern :searchable, Blacklight::Routes::Searchable.new
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
