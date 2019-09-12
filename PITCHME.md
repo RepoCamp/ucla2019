@@ -4,7 +4,7 @@
 - Jen Diamond
 - Terry Brady
 
-+++?image=app/assets/images/bluestar_logo.png
+![](app/assets/images/bluestar_logo.png)
 
 +++
 
