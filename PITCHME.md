@@ -6,6 +6,8 @@
 
 ![](app/assets/images/bluestar_logo.png)
 
++++?image=app/assets/images/bluestar_logo.png
+
 +++
 
 ## Add travis ci test
