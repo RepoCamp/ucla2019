@@ -32,3 +32,9 @@ Run rspec spec in docker each time a pull request is made or updated.
 +++
 
 ## View imported images with IIIF viewer
+
+- [Overview Documentation](https://github.com/samvera/hyrax/wiki/Hyrax-Management-Guide#option-1-built-in-riiif-image-server)
+- [Troubleshooting Guide](https://samvera.github.io/troubleshooting_riiif.html)
+
++++?code=config/initializers/hyrax.rb
+@[140](enable IIIF)
