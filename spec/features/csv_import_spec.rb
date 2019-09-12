@@ -34,6 +34,8 @@ RSpec.feature 'Import a CSV', js: false do
       visit '/dashboard'
       expect(page).to have_selector(:link_or_button, "Import CSV")
       click_link "Import CSV"
+      expect(page).to have_content "Import a set of records"
+      expect(page).to have_selector(:link_or_button, "Upload Your CSV")
     end
   end
 end
