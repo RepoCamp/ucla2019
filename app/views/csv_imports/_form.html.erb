@@ -1,0 +1,29 @@
+<%= form_with(local: true, html: { multipart: true }) do |form| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-8">
+          <h2> Getting Started </h2>
+        </div>
+      </div>
+      <div class="row">
+      <hr/>
+      <div class="row">
+        <div class="col-md-8">
+          <h2> Upload Your CSV </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="well well-lg">
+            <p> <b>Upload a CSV</b> that has your metadata. </p>
+            <div class="text-center">
+              <%= render "file_upload", form: form  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="actions">
+      <%= form.submit 'Start Import' %>
+    </div>
+<% end %>
