@@ -33,6 +33,7 @@ RSpec.feature 'Import a CSV', js: false do
     scenario do
       visit '/dashboard'
       expect(page).to have_selector(:link_or_button, "Import CSV")
+      click_link "Import CSV"
     end
   end
 end
