@@ -6,7 +6,7 @@ namespace :sample do
   end
   desc 'Import a different CSV'
   task :import, [:filename] => [:environment] do |_task, args|
-    csv_file = args[:filename]
+    csv_file = "#{::Rails.root}/ingest/#{args[:filename]}"
     CsvImporter.new(csv_file).import
   end
 end
