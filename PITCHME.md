@@ -1,13 +1,16 @@
+
 ## Team B Blue Star
 - Youn Noh
 - Jen Diamond
 - Terry Brady
 
-*TODO* Add Image
++++?image=app/assets/images/bluestar_logo.png
 
 +++
 
-## Add travis ci test configs
+## Add travis ci test
+
+Run rspec spec in docker each time a pull request is made or updated.
 
 +++?image=docs/travis.gif
 
