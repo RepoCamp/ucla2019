@@ -1,6 +1,13 @@
 sudo: required
 dist: trusty
 
+# This was copied from DSpace/DSpace-angular's travis file which runs in a Node environment
+# Since the logic runs in Docker, it would be possible to choose a different travis runtime environment such as Ruby
+language: node_js
+
+node_js:
+  - "10"
+
 env:
   # Install the latest docker-compose version for ci testing.
   # The default installation in travis is not compatible with the latest docker-compose file version.
@@ -17,18 +24,12 @@ install:
   - docker-compose up -d
 
 before_script:
-  # The following line could be enabled to verify that the rest server is responding.
-  # Currently, "yarn run build" takes enough time to run to allow the service to be available
-  #- curl http://localhost:8080/
+  # Add timing steps here if needed
 
-after_script:
-  - docker-compose down
-
-language: node_js
-
-node_js:
-  - "10"
 
 script:
   # Use Chromium instead of Chrome.
   - docker-compose run web rspec spec
+
+after_script:
+  - docker-compose down
