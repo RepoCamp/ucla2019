@@ -1,4 +1,9 @@
-## Team B Presentation
+## Team B Blue Star
+- Youn Noh
+- Jen Diamond
+- Terry Brady
+
+*TODO* Add Image
 
 +++
 
