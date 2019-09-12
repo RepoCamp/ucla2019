@@ -1,4 +1,4 @@
-CSV_FILE = "#{::Rails.root}/spec/fixtures/three_line_example.csv"
+CSV_FILE = "#{::Rails.root}/spec/fixtures/three_row_csv.csv"
 namespace :sample do
   desc 'Import the three line sample CSV'
   task :import_three_line_csv => [:environment] do |_task|
