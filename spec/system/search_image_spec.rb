@@ -33,5 +33,14 @@ RSpec.describe 'Search for an image', type: :system do
       expect(page).to have_xpath("//h3", text: "Year")
       expect(page).to have_link(image.year.first, class: "facet_select")
     end
+    
+    scenario "Search for an image by year" do
+      visit("/")
+      fill_in "q", with: "1520"
+      click_button "Go"
+      # Uncomment this to display the HTML capybara is seeing
+      # puts page.body
+      expect(page).to have_content image.title.first
+    end
   end
 end
