@@ -34,4 +34,8 @@ it "delegates year to solr document" do
   expect(solr_document).to receive(:year)
   presenter.year
 end
+
+it "displays the year in words" do
+  expect(presenter.year_into_words).to eq "two thousand and ten"
+end
 end

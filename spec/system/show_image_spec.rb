@@ -7,9 +7,10 @@ RSpec.describe 'Display an Image', type: :system do
   let(:visibility) { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
   let(:user)       { 'test@example.com' }
   let(:year)       { ['2010'] }
+  let(:year_in_words) { "two thousand and ten" }
 
   let :image do
-    Image.create(title:      title,
+    Image.create(title:     title,
                 creator:    creator,
                 keyword:    keyword,
                 visibility: visibility,
@@ -24,6 +25,6 @@ RSpec.describe 'Display an Image', type: :system do
     expect(page).to have_content image.creator.first
     expect(page).to have_content image.keyword.first
     expect(page).to have_content image.keyword.last
-    expect(page).to have_content image.year.first
+    expect(page).to have_content year_in_words
   end
 end
