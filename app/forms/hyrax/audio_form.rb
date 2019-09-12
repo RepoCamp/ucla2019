@@ -5,5 +5,6 @@ module Hyrax
   class AudioForm < Hyrax::Forms::WorkForm
     self.model_class = ::Audio
     self.terms += [:resource_type]
+    self.terms += [:year]
   end
 end
