@@ -9,6 +9,8 @@
 
 ## Add travis ci test configs
 
++++?image=docs/travis.gif
+
 +++
 
 ## Create an image CSV importer
