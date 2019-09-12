@@ -14,7 +14,16 @@ Run rspec spec in docker each time a pull request is made or updated.
 
 +++?image=docs/travis.gif
 
----?code=.travis.yml&lang=yaml
++++
+## Steps required
+- Mark turned on travis ci for the repo (as the GitHub org administrator)
+- create .travis.yml file
+
++++?code=.travis.yml&lang=yaml
+@[16-20](install docker-compose)
+@[22-24](Start Hyrax in Docker)
+@[30-32](Run rspec in Docker)
+@[34-35](Stop Hyrax in Docker)
 
 +++
 
