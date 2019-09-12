@@ -4,16 +4,14 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 # NOTE: If you generated more than one work, you have to set "js: true"
-RSpec.describe 'Create a Work', :clean, type: :system, js: true do
+RSpec.feature 'Import a CSV', js: false do
   context 'a logged in user' do
     let(:user_attributes) do
       { email: 'test@example.com' }
     end
-
     let(:user) do
       User.new(user_attributes) { |u| u.save(validate: false) }
     end
-
     let(:admin_set_id) { AdminSet.find_or_create_default_admin_set_id }
     let(:permission_template) { Hyrax::PermissionTemplate.find_or_create_by!(source_id: admin_set_id) }
     let(:workflow) { Sipity::Workflow.create!(active: true, name: 'test-workflow', permission_template: permission_template) }
@@ -34,8 +32,6 @@ RSpec.describe 'Create a Work', :clean, type: :system, js: true do
 
     scenario do
       visit '/dashboard'
-      click_link "Works"
-      expect(page).to have_selector(:link_or_button, "Import CSV")
     end
   end
 end
