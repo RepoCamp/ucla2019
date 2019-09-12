@@ -1,0 +1,35 @@
+sudo: required
+dist: trusty
+
+# This was copied from DSpace/DSpace-angular's travis file which runs in a Node environment
+# Since the logic runs in Docker, it would be possible to choose a different travis runtime environment such as Ruby
+language: node_js
+
+node_js:
+  - "10"
+
+env:
+  # Install the latest docker-compose version for ci testing.
+  # The default installation in travis is not compatible with the latest docker-compose file version.
+  COMPOSE_VERSION: 1.24.1
+
+before_install:
+  # Docker Compose Install
+  - curl -L https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+install:
+  - docker-compose run web rails db:setup
+  - docker-compose up -d
+
+before_script:
+  # Add timing steps here if needed
+
+
+script:
+  # Use Chromium instead of Chrome.
+  - docker-compose run web rspec spec
+
+after_script:
+  - docker-compose down
