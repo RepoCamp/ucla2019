@@ -14,6 +14,7 @@ class CsvImporter
       image.creator = [row[3]]
       image.description = [row[4]]
       image.keyword = row[5].split(',')
+      image.year = [row[6]]
       #row[5].split(',').each do |keyword|
       #  image.keyword += keyword
       #end
