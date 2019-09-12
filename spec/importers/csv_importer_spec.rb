@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+ENV['IMPORT_FILE_PATH'] = "spec/fixtures/images"
 
 require 'rails_helper'
 require 'active_fedora/cleaner'
