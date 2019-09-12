@@ -16,4 +16,4 @@
 <%= presenter.attribute_to_html(:rights_notes, html_dl: true) %>
 <%= presenter.attribute_to_html(:access_right, html_dl: true) %>
 <%= presenter.attribute_to_html(:license, render_as: :license, html_dl: true) %>
-<%= presenter.attribute_to_html(:year) %>
+<tr><th><strong>Year</strong></th><td><ul class='tabular'><li class=\"attribute attribute-year\"><%= presenter.year_into_words %></li></ul></td></tr>

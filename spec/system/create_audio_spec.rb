@@ -31,14 +31,15 @@ RSpec.describe 'Create a Audio', integration: true, clean: true, type: :system d
     end
 
     scenario do
-      visit '/dashboard'
-      click_link "Works"
-      click_link "Add new work"
+      # visit '/dashboard'
+      # click_link "Works"
+      # click_link "Add new work"
 
-      # If you generate more than one work uncomment these lines
-      choose "payload_concern", option: "Audio"
-      click_button "Create work"
+      # # If you generate more than one work uncomment these lines
+      # choose "payload_concern", option: "Audio"
+      # click_button "Create work"
 
+      visit '/concern/audios/new'
       expect(page).to have_content "Add New Audio"
       click_link "Files" # switch tab
       expect(page).to have_content "Add files"

@@ -69,3 +69,5 @@ gem 'devise'
 gem 'devise-guests', '~> 0.6'
 
 gem 'riiif', '~> 2.0'
+
+gem 'numbers_in_words'
