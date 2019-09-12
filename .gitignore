@@ -23,3 +23,6 @@ fits.log
 
 .byebug_history
 bundle/
+
+/ingest/*
+
